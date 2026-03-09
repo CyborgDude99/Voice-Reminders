@@ -1,4 +1,5 @@
 SCRIPT LIST
+// TODO Expand list and do alternatives
 Wakeup
 * 6:30: "We hope you have had a wonderful rest! Time to face the morning rush. Please wake up and go eat some food." (No follow-up) 
 
