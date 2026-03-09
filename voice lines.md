@@ -9,7 +9,7 @@ Dressed
 Pack
 * 6:55: "Time to pack your Aperture Science Book and Computer Storage Bag (Teal-Grey). You don't want to be left without the proper equipment!"
 * 7:05: If button has not been pressed:"This shouldn't take this long. Hurry it up!"
-* 7:10: If button has not been pressed: "I tire of this. Are you searching Vermintide builds again? That is an unauthorised use of the Aperture Science Computer Work Logging Device (Defective Keyboard)
+* 7:10: If button has not been pressed: "I tire of this. Are you searching Vermintide builds again? That is an unauthorised use of the Aperture Science Computer Work Logging Device (Defective Keyboard) 
 
 All done
 * 7:15: "OK, it is time to chill. Wait around and play with your Work Logging Device. You've earned it
