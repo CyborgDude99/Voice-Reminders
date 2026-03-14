@@ -9,18 +9,23 @@ https://phoenixnap.com/kb/set-up-cron-job-linux
 import wave
 import logging
 import sys
+import time
 from timeit import default_timer as timer
 from piper import PiperVoice
-from pygame import mixer 
+from pygame import mixer
+from time import sleep 
 
 
 
 # Variables
 ModelName = "./glados.onnx"
 Voiceline1 = "We hope you have had a wonderful rest! Time to face the morning rush. Please wake up and go eat some food."
-Voiceline2 = "Hurry up, meatbag."
+Voiceline2 = "What is taking you so long? Why are you forcing me to wait like this?"
+Voiceline3 = "Thank you, test subject. Shutting down."
 WavFile1 = "wakeup.wav"
-WavFile2 = "meatbag.wav"
+WavFile2 = "angry.wav"
+WavFile3 = "sleep.wav"
+TimerDelay = 10
 INITIALSTATE = 1
 WAITINGINITIALSTATE = 2
 ESCALATEDSTATE = 3
@@ -46,6 +51,8 @@ with wave.open(WavFile1, "wb") as wav_file:
         voice.synthesize_wav(Voiceline1, wav_file)
 with wave.open(WavFile2, "wb") as wav_file:
         voice.synthesize_wav(Voiceline2, wav_file)
+with wave.open(WavFile3, "wb") as wav_file:
+        voice.synthesize_wav(Voiceline3, wav_file)
 
 while running: 
         if CurrentState == INITIALSTATE:
@@ -56,7 +63,7 @@ while running:
                 CurrentState = WAITINGINITIALSTATE
         if CurrentState == WAITINGINITIALSTATE:
                 # Has enough time passed?
-                if timer() - start >= 10:
+                if timer() - start >= TimerDelay:
                         CurrentState = ESCALATEDSTATE
         if CurrentState == ESCALATEDSTATE: 
                 logger.info("In escalated state")
@@ -66,10 +73,13 @@ while running:
                 CurrentState = WAITINGESCALATEDSTATE
         if CurrentState == WAITINGESCALATEDSTATE:
                 # Has enough time passed?
-                if timer() - start >= 10:
+                if timer() - start >= TimerDelay:
                         CurrentState = SHUTDOWNSTATE
         if CurrentState == SHUTDOWNSTATE:
                 logger.info("In shutdown state")
+                mixer.music.load(WavFile3)
+                mixer.music.play()
+                time.sleep(6)
                 running = False                           
 
 
