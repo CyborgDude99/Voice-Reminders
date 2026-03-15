@@ -5,3 +5,4 @@ The cd VoiceReminder command is used to select the directory
 Then, the aplay -D hw:0,0 test(or any other voiceline).wav command is run. 
 Still working on the simpler aplay test.wav command
 Need to install pygame with pip install pygame
+Similarly, need to install the piicodev infrastructure with pip3 install piicodev
