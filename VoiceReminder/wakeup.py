@@ -46,7 +46,7 @@ logging.basicConfig(
     level = logging.INFO, 
     stream= sys.stdout
 )
-button = PiicoDev_Switch()
+button = PiicoDev_Switch(id = [1,0,0,0])
 logger = logging.getLogger(__name__)
 
 
